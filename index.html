@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎵 Dooron Dooron Lyrics & Meaning</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fbe9e7, #ffccbc);
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #d84315;
+    }
+    audio {
+      margin: 20px;
+      display: none;
+    }
+    .lyrics {
+      max-width: 700px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: left;
+      line-height: 1.6;
+      overflow: hidden;
+    }
+    .line {
+      margin: 25px 0;
+      transition: all 0.6s ease;
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    .active {
+      color: #eb9b11;
+      font-weight: 600;
+      transform: scale(1.08);
+      opacity: 1;
+      animation: pulse 1.5s ease-in-out infinite alternate;
+    }
+    .marathi, .english {
+      display: block;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .english {
+      color: #333;
+      font-style: italic;
+    }
+    @keyframes pulse {
+      from { transform: scale(1.05); }
+      to { transform: scale(1.12); }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎵 Dooron Dooron ♥</h1>
+
+  <audio id="song" autoplay>
+    <source src="1.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="lyrics" id="lyrics"></div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const audio = document.getElementById('song');
+      
+      // 🎧 Start music from 30 seconds (skip intro)
+      audio.currentTime = 30;
+
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // If autoplay is blocked, show a play button
+          const btn = document.createElement('button');
+          btn.textContent = '▶ Play Song';
+          btn.style.padding = '10px 20px';
+          btn.style.fontSize = '1.2rem';
+          btn.style.border = 'none';
+          btn.style.borderRadius = '10px';
+          btn.style.background = '#e64a19';
+          btn.style.color = 'white';
+          btn.style.cursor = 'pointer';
+          btn.onclick = () => {
+            audio.currentTime = 30;
+            audio.play();
+            btn.remove();
+          };
+          document.body.insertBefore(btn, document.getElementById('lyrics'));
+        });
+      }
+    });
+
+    const lines = [
+      { time: 0, text: 'दूरों दूरों मैं वेखां तैनु सोनियो, कहाँ तू कहाँ मैं', marathi: 'दूरून दूरून मी तुला पाहतोय, सुंदर हो, तू कुठे आहेस, मी कुठे आहे.', english: 'From afar, I keep looking at you, beautiful one — you’re somewhere high above, and I’m far away below.' },
+      { time: 7, text: 'मिट्टी दा बंदा मैं, तू तां परी', marathi: 'मी मातीचा माणूस आहे, तू तर परीसारखी आहेस.', english: 'I’m made of earth, while you seem like a fairy — too perfect for me.' },
+      { time: 14, text: 'की मैं करां के मैं आवा नजर तेनू...', marathi: 'मी काय करू की तुझ्या नजरेत येईन...', english: 'What should I do to come into your sight? Tell me how can I ever be worthy of you.' },
+      { time: 21, text: 'कोल तेरे मैंनू आन दे सोणी...', marathi: 'मला तुझ्या जवळ येऊ दे सुंदर...', english: 'Let me come close to you, my beautiful one — I’m trying so hard, so many times.' },
+      { time: 28, text: 'तू वेखी ना मैंनू...', marathi: 'तू माझ्याकडे बघतच नाहीस...', english: 'You don’t even look at me — how can I tell you what my heart feels?' },
+      { time: 35, text: 'सोचूं कि मिलने ते बोलेंगे क्या', marathi: 'मी विचार करतो, भेटल्यावर आपण काय बोलू?', english: 'I keep wondering what we’d say if we ever met.' },
+      { time: 42, text: 'जिन गलां दा डर सी, ओ ही हो गया', marathi: 'ज्या गोष्टींची मला भीती होती, त्या खऱ्या ठरल्या.', english: 'The things I feared the most… they’re the ones that actually happened.' },
+      { time: 49, text: 'तू हसदी रहिंदी, मैंनू तकदी नहीं', marathi: 'तू हसत राहतेस, पण माझ्याकडे पाहत नाहीस.', english: 'You keep smiling but never glance at me.' },
+      { time: 56, text: 'तेरी यादा वी मैंनू सौन नहीं देन्दी', marathi: 'तुझ्या आठवणीसुद्धा मला झोपू देत नाहीत.', english: 'Even your memories don’t let me sleep — they haunt me softly.' },
+      { time: 63, text: 'दूरों दूरों मैं वेखां तैनु सोनियो...', marathi: 'दूरून दूरून मी तुला पाहतोय, सुंदर हो — तू कुठे आहेस, मी कुठे आहे.', english: 'From afar, I still keep watching you — we’re worlds apart, yet my eyes always find you.' }
+    ];
+
+    const lyricsDiv = document.getElementById('lyrics');
+    lines.forEach((l, i) => {
+      const div = document.createElement('div');
+      div.classList.add('line');
+      div.innerHTML = `<b>${i+1}️⃣ ${l.text}</b><span class='marathi'>${l.marathi}</span><span class='english'>→ ${l.english}</span>`;
+      lyricsDiv.appendChild(div);
+    });
+
+    const audio = document.getElementById('song');
+    const lineElements = document.querySelectorAll('.line');
+
+    // ✨ Sync lyrics starting from line 1 while music plays from 30s
+    audio.addEventListener('timeupdate', () => {
+      const currentTime = audio.currentTime - 30; // adjust sync since music starts from 30s
+      let currentIndex = lines.findIndex((l, i) => currentTime >= l.time && (i === lines.length - 1 || currentTime < lines[i + 1].time));
+      if (currentIndex !== -1) {
+        lineElements.forEach(el => el.classList.remove('active'));
+        lineElements[currentIndex].classList.add('active');
+        lineElements[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  </script>
+</body>
+</html>
